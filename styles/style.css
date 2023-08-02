@@ -1,0 +1,244 @@
+:root {
+  --acier: grey;
+  --combat: brown;
+  --dragon: darkblue;
+  --eau: blue;
+  --electrique: yellow;
+  --fantome: darkviolet;
+  --fee: pink;
+  --feu: red;
+  --glace: azure;
+  --insecte: lightgreen;
+  --normal: lightgrey;
+  --roche: darkred;
+  --plante: green;
+  --poison: violet;
+  --psy: pink;
+  --sol: darkorange;
+  --tenebre: black;
+  --vol: lightblue;
+}
+
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+
+div {
+  border: 1px solid red;
+}
+
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  overflow: hidden;
+  background-color: gainsboro;
+}
+
+.card-container {
+  border: 10px solid black;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg {
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0.5;
+  background-position: top center;
+  background-size: contain;
+}
+
+.bg[data-type="Eau"] {
+  background-color: var(--eau);
+}
+
+.bg[data-type="Feu"] {
+  background-color: var(--feu);
+  background-image: url(../resources/feu.png);
+}
+
+.bg[data-type="Vol"] {
+  background-color: var(--vol);
+}
+
+.card {
+  width: 90%;
+  height: 95%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+
+.pokemon-img {
+  border: 15px inset gold;
+  border-radius: 10%;
+  width: 90%;
+  height: 50%;
+  object-fit: contain;
+  background-color: white;
+}
+
+.response-container {
+  width: 100%;
+  height: 10%;
+  margin-top: 5%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.response-container.end {
+  background-color: green;
+}
+
+.response-container .syllabe {
+  height: 100%;
+  width: 100%;
+  font-size: xx-large;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.response-container.end .syllabe {
+  width: auto;
+  transition: all 1s;
+  border: none;
+  font-weight: bolder;
+  color: black;
+}
+
+.response-container.end .syllabe:first-child {
+  text-transform: capitalize;
+}
+
+.response-container .good {
+  color: green;
+}
+
+.response-container .bad {
+  color: red;
+}
+
+.input-container {
+  width: 100%;
+  height: 10%;
+  margin-top: 5%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.input-container .syllabe {
+  height: 100%;
+  width: 100%;
+  margin: 5%;
+  font-size: xx-large;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  border-radius: 20%;
+  border: 5px white outset;
+  box-shadow: 2px 2px 2px black;
+  transition: all 0.5s;
+}
+
+.input-container .syllabe[data-end="true"] {
+  pointer-events: none;
+  background-color: grey;
+  border: 5px white inset;
+  box-shadow: 0px 0px 0px black;
+  transition: all 1s;
+}
+
+.information-container {
+  width: 100%;
+  height: 20%;
+  margin-top: 5%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  /* visibility: hidden; */
+}
+
+.response-container.end ~ .information-container {
+  visibility: visible;
+  transition: all 1s;
+}
+
+.types-container {
+  height: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+img.type {
+  border-radius: 100%;
+  width: 15vw;
+  height: 15vw;
+}
+
+img.type[data-type="Eau"] {
+  border: 5px inset var(--eau);
+}
+
+img.type[data-type="Feu"] {
+  border: 5px inset var(--feu);
+}
+
+img.type[data-type="Plante"] {
+  border: 5px inset var(--plante);
+}
+
+img.type[data-type="Poison"] {
+  border: 5px inset var(--poison);
+}
+
+.shiny {
+  height: 100%;
+  object-fit: contain;
+}
+
+.information {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background-color: blue;
+  color: white;
+  font-size: xx-large;
+  width: 15vw;
+  height: 15vw;
+  border-radius: 100%;
+  border: 5px outset white;
+  font-weight: bolder;
+}
