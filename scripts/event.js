@@ -102,6 +102,10 @@ function handleTouchEnd(event) {
   if (Math.abs(deltaY) > 100) {
     goTo(deltaY > 0 ? -1 : 1);
     synth.cancel();
+    startX = 0;
+    startY = 0;
+    deltaX = 0;
+    deltaY = 0;
   }
 
   document.removeEventListener("touchmove", handleTouchMove);
