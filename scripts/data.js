@@ -12,8 +12,8 @@ const datas = [
     syllabes: ["flo", "ri", "zarre"],
   },
   {
-    name: "salameche",
-    syllabes: ["sa", "la", "meche"],
+    name: "salamèche",
+    syllabes: ["sa", "la", "mèche"],
   },
   {
     name: "reptincel",

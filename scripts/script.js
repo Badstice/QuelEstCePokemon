@@ -1,23 +1,5 @@
-const apiRoot = "https://api-pokemon-fr.vercel.app/api/v1/pokemon/";
-
-const myImage = document.querySelector("img");
-
-let pokemonCount = 0,
-  currentPokemon = 0;
-
-let indexPokemons = shuffleArray(datas.map((v, i) => i));
-
-function shuffleArray(arr) {
-  arr.sort(() => Math.random() - 0.5);
-  return arr;
-}
-
-function getPokemon(pokemonName) {
-  return datas.find((p) => p.name === pokemonName);
-}
-
 async function getPokemonData(pokemonName) {
-  const response = await fetch(apiRoot + pokemonName);
+  const response = await fetch(apiRoot + checkName(pokemonName));
   const json = await response.json();
   return json;
 }

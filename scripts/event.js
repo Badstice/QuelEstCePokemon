@@ -81,11 +81,6 @@ document.addEventListener("click", (evt) => {
   }
 });
 
-let startX = 0,
-  startY = 0,
-  deltaX = 0,
-  deltaY = 0;
-
 function handleTouchStart(event) {
   startX = event.touches[0].clientX;
   startY = event.touches[0].clientY;
