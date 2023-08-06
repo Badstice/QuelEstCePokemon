@@ -31,7 +31,7 @@ function onInputSyllabeClick(target) {
     if (response === responsesContainer.dataset.response) {
       speak("Bravo !");
       responsesContainer.classList.add("end");
-      newCard();
+      newEvolution();
     } else {
       speak("Dommage, essai encore");
       setTimeout(() => {
@@ -95,16 +95,21 @@ function handleTouchMove(event) {
 
 function handleTouchEnd(event) {
   if (Math.abs(deltaY) > 100) {
-    goTo(deltaY > 0 ? -1 : 1);
-    synth.cancel();
-    startX = 0;
-    startY = 0;
-    deltaX = 0;
-    deltaY = 0;
+    goToNextPokemon(deltaY > 0 ? -1 : 1);
+  } else if (Math.abs(deltaX) > 100) {
+    goToNextEvolution(deltaY > 0 ? -1 : 1);
   }
 
   document.removeEventListener("touchmove", handleTouchMove);
   document.removeEventListener("touchend", handleTouchEnd);
+}
+
+function resetChangePage() {
+  synth.cancel();
+  startX = 0;
+  startY = 0;
+  deltaX = 0;
+  deltaY = 0;
 }
 
 document.addEventListener("touchstart", handleTouchStart);

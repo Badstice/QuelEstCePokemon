@@ -30,13 +30,25 @@ div {
 }
 
 body {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+main {
+  display: block;
   overflow: hidden;
-  background-color: gainsboro;
+  width: 100vw;
+  height: 100vh;
+}
+
+.evolution-container {
+  overflow: hidden;
+  height: 100vh;
+  width: 310vw;
+  position: relative;
 }
 
 .card-container {
@@ -44,9 +56,10 @@ body {
   width: 100vw;
   height: 100vh;
   border-radius: 1%;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .bg {

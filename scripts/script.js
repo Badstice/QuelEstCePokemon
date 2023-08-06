@@ -53,22 +53,15 @@ function createElmt(elmt, parent, classes, datasets, innerText, params) {
 
 async function createCard(pokemon, evolutionContainer) {
   let card = {};
-  if (evolutionContainer) {
-    card.container = createElmt(
-      "div",
-      evolutionContainer,
-      ["card-container"],
-      {
-        id: pokemon.data.pokedexId,
-      },
-      null,
-      { order: pokemon.data.pokedexId }
-    );
-  } else {
-    card.container = createElmt("div", document.body, ["card-container"], {
+  card.container = createElmt(
+    "div",
+    evolutionContainer,
+    ["card-container"],
+    {
       id: pokemon.data.pokedexId,
-    });
-  }
+    },
+    null
+  );
 
   card.backgrounds = [];
   for (const type of pokemon.data.types) {
@@ -79,7 +72,7 @@ async function createCard(pokemon, evolutionContainer) {
     );
   }
 
-  card.container.id = pokemonCount;
+  //card.container.id = pokemonCount;
   card.card = createElmt("div", card.container, ["card"]);
   card.img = await createImg(
     pokemon.data.sprites.regular,
@@ -160,26 +153,48 @@ async function createCard(pokemon, evolutionContainer) {
   return card;
 }
 
-async function newCard() {
-  const index = indexPokemons.shift();
-  const pokemon = datas[index];
-  pokemon.data = await getPokemonData(pokemon.name);
-  const card = await createCard(pokemon);
-  console.log(pokemon.data);
-  pokemonCount += 1;
-}
-
-function goTo(dir) {
-  const nextId = currentPokemon + dir;
-  const elmt = document.getElementById(nextId);
-  if (elmt) {
-    elmt.scrollIntoView({
-      behavior: "smooth",
-      block: "end",
-      inline: "nearest",
-    });
-    currentPokemon = nextId;
+async function newCard(pokemonName, evolutionContainer) {
+  const pokemon = getPokemon(pokemonName);
+  console.log(pokemon);
+  if (pokemon) {
+    indexPokemons = remove(indexPokemons, pokemon.index);
+    pokemon.data = await getPokemonData(pokemon.name);
+    await createCard(pokemon, evolutionContainer);
   }
 }
 
-newCard();
+async function newEvolution() {
+  const evolutionContainer = createElmt("div", main, ["evolution-container"]);
+  const index = indexPokemons.shift();
+  const pokemon = datas[index];
+  pokemon.data = await getPokemonData(pokemon.name);
+  console.log(datas);
+  console.log(pokemon.data);
+
+  if (pokemon.data.evolution.pre) {
+    for (const pre of pokemon.data.evolution.pre) {
+      await newCard(pre.name, evolutionContainer);
+    }
+  }
+
+  const card = await createCard(pokemon, evolutionContainer);
+
+  if (!currentCard) {
+    currentCard = card.container;
+    currentCard.scrollIntoView({
+      block: "end",
+      inline: "nearest",
+    });
+  }
+
+  if (pokemon.data.evolution.next) {
+    for (const next of pokemon.data.evolution.next) {
+      await newCard(next.name, evolutionContainer);
+    }
+  }
+
+  pokemonCount += 1;
+}
+
+datas.forEach((d, i) => (d.index = i));
+newEvolution();

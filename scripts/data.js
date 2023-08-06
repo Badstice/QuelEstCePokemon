@@ -1,38 +1,38 @@
 const datas = [
   {
-    name: "bulbizarre",
+    name: "Bulbizarre",
     syllabes: ["bul", "bi", "zarre"],
   },
   {
-    name: "herbizarre",
+    name: "Herbizarre",
     syllabes: ["her", "bi", "zarre"],
   },
   {
-    name: "florizarre",
+    name: "Florizarre",
     syllabes: ["flo", "ri", "zarre"],
   },
   {
-    name: "salamèche",
+    name: "Salamèche",
     syllabes: ["sa", "la", "mèche"],
   },
   {
-    name: "reptincel",
+    name: "Reptincel",
     syllabes: ["re", "ptin", "cel"],
   },
   {
-    name: "dracaufeu",
+    name: "Dracaufeu",
     syllabes: ["dra", "cau", "feu"],
   },
   {
-    name: "carapuce",
+    name: "Carapuce",
     syllabes: ["ca", "ra", "puce"],
   },
   {
-    name: "carabaffe",
+    name: "Carabaffe",
     syllabes: ["ca", "ra", "baffe"],
   },
   {
-    name: "tortank",
+    name: "Tortank",
     syllabes: ["tor", "tank"],
   },
 ];
@@ -41,6 +41,7 @@ const syllabes = {
   ca: "ka",
   dra: "drap",
   meche: "mècheu",
+  zarre: "zar",
 };
 
 const pokemonName = {};
