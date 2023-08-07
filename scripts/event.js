@@ -97,7 +97,7 @@ function handleTouchEnd(event) {
   if (Math.abs(deltaY) > 100) {
     goToNextPokemon(deltaY > 0 ? -1 : 1);
   } else if (Math.abs(deltaX) > 100) {
-    goToNextEvolution(deltaY > 0 ? -1 : 1);
+    goToNextEvolution(deltaX > 0 ? -1 : 1);
   }
 
   document.removeEventListener("touchmove", handleTouchMove);
