@@ -88,6 +88,15 @@ async function createCard(pokemon, evolutionContainer) {
       pokemon: pokemon.name,
     }
   );
+
+  card.img.number = {};
+  card.img.number.container = createDiv(card.img.container, ["number-container"]);
+  const gen = pokemon.data.generation;
+  const pokeId = pokemon.data.pokedexId;
+  card.img.number.generation = createElmt("p", card.img.number.container, ["generation"], { gen }, `Gen: ${gen}`);
+  card.img.number.pokeId = createElmt("p", card.img.number.container, ["pokeId"], { pokeId }, `N°: ${pokeId}`)
+  
+  
   card.img.types = {};
   card.img.types.container = createDiv(card.img.container,
     ["types-container"]

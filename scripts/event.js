@@ -75,6 +75,10 @@ document.addEventListener("click", (evt) => {
     onInputSyllabeClick(target);
   } else if (target.dataset.type) {
     speak(target.dataset.type);
+  } else if(target.dataset.gen){
+    speakGeneration(target.dataset.gen);
+  } else if(target.dataset.pokeId){
+    speakPokeId(target.dataset.pokeId);
   }
   if (target.classList.contains("information")) {
     onInformationClick(target);

@@ -52,3 +52,15 @@ function presentation(pokemon) {
     }`
   );
 }
+
+function speakGeneration(gen) {
+   if(gen === "1"){
+     speak("il fait parti de la première génération de Pokémon");
+     } else {
+speak(`if fait partie de la ${gen}ième génération de Pokémon`);
+     }
+}
+
+function speakPokeId(id) {
+   speak(`il est le numéro ${id}`);
+}
