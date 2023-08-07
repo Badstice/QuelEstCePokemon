@@ -87,6 +87,14 @@ main {
   background-color: var(--vol);
 }
 
+.bg[data-type="Plante"] {
+  background-color: var(--plante);
+}
+
+.bg[data-type="Poison"] {
+  background-color: var(--poison);
+}
+
 .card {
   width: 90%;
   height: 95%;
@@ -97,13 +105,23 @@ main {
   align-content: center;
 }
 
-.pokemon-img {
-  border: 15px inset gold;
+.pokemon-img-container {
+  position: relative;
+  border: 14px inset gold;
   border-radius: 10%;
   width: 90%;
   height: 50%;
-  object-fit: contain;
+  overflow: visible;
+  outline: 5px solid gold;
+  z-index: 1;
   background-color: white;
+}
+
+.pokemon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: inherit;
 }
 
 .response-container {
@@ -199,24 +217,31 @@ main {
   /* visibility: hidden; */
 }
 
-.response-container.end ~ .information-container {
+.response-container.end~.information-container {
   visibility: visible;
   transition: all 1s;
 }
 
 .types-container {
-  height: 100%;
+  position: absolute;
+  right: 17px;
+  top: -32px;
+  height: 50px;
+  width: 150px;
   display: flex;
-  flex-flow: column wrap;
-  justify-content: space-between;
+  flex-flow: row wrap;
+  justify-content: flex-end;
   align-items: center;
   align-content: center;
+  z-index: 10;
 }
 
 img.type {
   border-radius: 100%;
-  width: 15vw;
-  height: 15vw;
+  width: 40px;
+  height: 40px;
+  margin-right:10px;
+  outline: 2px outset lightgrey;
 }
 
 img.type[data-type="Eau"] {
@@ -233,6 +258,10 @@ img.type[data-type="Plante"] {
 
 img.type[data-type="Poison"] {
   border: 5px inset var(--poison);
+}
+
+img.type[data-type="Vol"] {
+  border: 5px inset var(--vol);
 }
 
 .shiny {
