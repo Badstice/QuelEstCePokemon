@@ -64,3 +64,18 @@ speak(`if fait partie de la ${gen}ième génération de Pokémon`);
 function speakPokeId(id) {
    speak(`il est le numéro ${id}`);
 }
+
+function speakShiny(shiny){
+  if (shiny === "shiny") {
+     speak("voici sa forme shiny");
+  } else if (shiny === "gmax") {
+     speak("voici sa méga évaluation");
+  } else if (shiny === "gmax-shiny") {
+     speak("voici sa forme shiny de sa méga évolution")
+  }
+}
+
+function speakResistance(what, resistances) {
+    const index = resistances.length -1;
+     speak(`il est ${what} face aux attaques de type : ${resistances.map((t,i)=> `${(i  === index ? ",et " : "")}${t.dataset.type}`).join(' . ')}`);
+}

@@ -115,7 +115,7 @@ async function createCard(pokemon, evolutionContainer) {
     "div",
     card.card,
     ["response-container"],
-    { response: pokemon.name.toLocaleLowerCase(), input: "" }
+    { response: pokemon.name.toLocaleLowerCase(), pokemon: pokemon.name }
   );
   card.response.syllabes = [];
 
@@ -148,20 +148,49 @@ async function createCard(pokemon, evolutionContainer) {
   card.information.container = createElmt("div", card.card, [
     "information-container",
   ]);
-  
-  if (pokemon.data.sprites.shiny) {
-    createImg(pokemon.data.sprites.shiny, card.information.container, [
-      "shiny",
-    ]);
-  }
 
-  card.information.bnt = createElmt(
-    "div",
-    card.information.container,
+  card.information.bnt = createDiv(
+    card.img.container,
     ["information"],
     { pokemon: pokemon.name },
     "i"
   );
+
+  card.information.resistances = {};
+  card.information.resistances.container = createDiv(card.information.container, ["resistances-container"]);
+  
+  card.information.resistances.forces = createDiv(card.information.resistances.container, ["forces"]);
+  
+  card.information.resistances.weakness = createDiv(card.information.resistances.container, ["weakness"]);
+  for(const resistance of pokemon.data.resistances){
+    if (resistance.multiplier > 1) {
+       await createImg(getTypeUrl(resistance.name), card.information.resistances.forces
+                , ["type"], {
+        type: resistance.name,
+      });
+    
+    } else if (resistance.multiplier < 1) {
+       await createImg(getTypeUrl(resistance.name), card.information.resistances.weakness
+                , ["type"], {
+        type: resistance.name,
+      });
+    }
+    }
+
+    if (pokemon.data.sprites?.gmax?.shiny && rdmBool()) {
+    createImg(pokemon.data.sprites.gmax.shiny, card.information.container, [
+      "shiny",
+    ], { shiny: "gmax-shiny" });
+  } else if (pokemon.data.sprites?.gmax?.regular && rdmBool()) {
+    createImg(pokemon.data.sprites.gmax.shiny, card.information.container, [
+      "shiny",
+    ], { shiny: "gmax" });
+  } else if (pokemon.data.sprites?.shiny) {
+    createImg(pokemon.data.sprites.shiny, card.information.container, [
+      "shiny",
+    ], { shiny: "shiny" });
+    }
+  
   return card;
 }
 

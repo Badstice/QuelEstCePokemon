@@ -3,6 +3,10 @@ function shuffleArray(arr) {
   return arr;
 }
 
+function rdmBool(){
+return Math.random() - 0.5 > 0;
+  }
+
 function getPokemon(pokemonName) {
   return datas.find((p) => p.name === pokemonName);
 }
@@ -19,6 +23,11 @@ function checkName(name) {
   }
   return name.toLowerCase();
 }
+
+function getTypeUrl(type) {
+   return `https://raw.githubusercontent.com/Yarkis01/PokeAPI/images/types/${checkName(type)}.png`;
+}
+
 
 function remove(array, elmt) {
   const index = array.indexOf(elmt);

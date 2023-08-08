@@ -30,6 +30,7 @@ function onInputSyllabeClick(target) {
 
     if (response === responsesContainer.dataset.response) {
       speak("Bravo !");
+      currentCard.classList.add("end");
       responsesContainer.classList.add("end");
       newEvolution();
     } else {
@@ -79,7 +80,15 @@ document.addEventListener("click", (evt) => {
     speakGeneration(target.dataset.gen);
   } else if(target.dataset.pokeId){
     speakPokeId(target.dataset.pokeId);
+  } else if (target.dataset.shiny) {
+     speakShiny(target.dataset.shiny);
+  } else if (target.classList.contains("forces")) {
+    speakResistance("résistant", [...target.querySelectorAll("[data-type]")]);
+  } else if (target.classList.contains("weakness")) {
+    speakResistance("faible", [...target.querySelectorAll("[data-type]")]);
   }
+  
+  
   if (target.classList.contains("information")) {
     onInformationClick(target);
   }
