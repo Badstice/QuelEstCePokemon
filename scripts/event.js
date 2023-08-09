@@ -95,6 +95,7 @@ document.addEventListener("click", (evt) => {
 });
 
 function handleTouchStart(event) {
+  event.preventDefault();
   startX = event.touches[0].clientX;
   startY = event.touches[0].clientY;
   document.addEventListener("touchmove", handleTouchMove);

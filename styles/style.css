@@ -70,17 +70,52 @@ main {
   background-size: contain;
 }
 
+.bg[data-type="Acier"] {
+  background-color: var(--acier);
+}
+
+.bg[data-type="Combat"] {
+  background-color: var(--dragon);
+}
+
+.bg[data-type="Dragon"] {
+  background-color: var(--dragon);
+}
+
 .bg[data-type="Eau"] {
   background-color: var(--eau);
 }
 
-.bg[data-type="Feu"] {
-  background-color: var(--feu);
-  background-image: url(../resources/feu.png);
+.bg[data-type="Électrik"] {
+  background-color: var(--electrique);
 }
 
-.bg[data-type="Vol"] {
-  background-color: var(--vol);
+.bg[data-type="Fantome"] {
+  background-color: var(--fanrome);
+}
+
+.bg[data-type="Fee"] {
+  background-color: var(--fee);
+}
+
+.bg[data-type="Feu"] {
+  background-color: var(--feu);
+}
+
+.bg[data-type="Glace"] {
+  background-color: var(--glace);
+}
+
+.bg[data-type="Insecte"] {
+  background-color: var(--insecte);
+}
+
+.bg[data-type="Normal"] {
+  background-color: var(--normal);
+}
+
+.bg[data-type="Roche"] {
+  background-color: var(--roche);
 }
 
 .bg[data-type="Plante"] {
@@ -89,6 +124,22 @@ main {
 
 .bg[data-type="Poison"] {
   background-color: var(--poison);
+}
+
+.bg[data-type="Psy"] {
+  background-color: var(--psy);
+}
+
+.bg[data-type="Sol"] {
+  background-color: var(--sol);
+}
+
+.bg[data-type="Tenebre"] {
+  background-color: var(--tenebre);
+}
+
+.bg[data-type="Vol"] {
+  background-color: var(--vol);
 }
 
 .card {
@@ -167,12 +218,52 @@ img.type {
   outline: 2px outset lightgrey;
 }
 
+img.type[data-type="Acier"] {
+  border: 5px inset var(--acier);
+}
+
+img.type[data-type="Combat"] {
+  border: 5px inset var(--combat);
+}
+
+img.type[data-type="Dragon"] {
+  border: 5px inset var(--eau);
+}
+
 img.type[data-type="Eau"] {
   border: 5px inset var(--eau);
 }
 
+img.type[data-type="Électrik"] {
+  border: 5px inset var(--electrique);
+}
+
+img.type[data-type="Fantome"] {
+  border: 5px inset var(--fantome);
+}
+
+img.type[data-type="Fee"] {
+  border: 5px inset var(--fee);
+}
+
 img.type[data-type="Feu"] {
   border: 5px inset var(--feu);
+}
+
+img.type[data-type="Glace"] {
+  border: 5px inset var(--glace);
+}
+
+img.type[data-type="Insecte"] {
+  border: 5px inset var(--insecte);
+}
+
+img.type[data-type="Normal"] {
+  border: 5px inset var(--normal);
+}
+
+img.type[data-type="Roche"] {
+  border: 5px inset var(--roche);
 }
 
 img.type[data-type="Plante"] {
@@ -181,6 +272,18 @@ img.type[data-type="Plante"] {
 
 img.type[data-type="Poison"] {
   border: 5px inset var(--poison);
+}
+
+img.type[data-type="Psy"] {
+  border: 5px inset var(--psy);
+}
+
+img.type[data-type="Sol"] {
+  border: 5px inset var(--sol);
+}
+
+img.type[data-type="Tenebre"] {
+  border: 5px inset var(--tenebre);
 }
 
 img.type[data-type="Vol"] {
@@ -326,7 +429,7 @@ display: flex;
 
 .forces, .weakness{
   display: flew;
-  flew-flow: row wrap;
+  flex-flow: row wrap;
   }
 
 .forces{
