@@ -1,6 +1,9 @@
 async function getPokemonData(pokemonName) {
   const response = await fetch(apiRoot + checkName(pokemonName));
   const json = await response.json();
+  if (response?.status === 404) {
+    console.log(`Le pokèmon ${pokemon} n'existe pas`);
+  }
   return json;
 }
 
@@ -51,7 +54,7 @@ function createElmt(elmt, parent, classes, datasets, innerText, params) {
   return stock;
 }
 
-function createDiv(parent, classes, datasets, innerText, params){
+function createDiv(parent, classes, datasets, innerText, params) {
   return createElmt("div", parent, classes, datasets, innerText, params);
 }
 
@@ -77,7 +80,7 @@ async function createCard(pokemon, evolutionContainer) {
   }
 
   card.card = createElmt("div", card.container, ["card"]);
-  
+
   card.img = {};
   card.img.container = createDiv(card.card, ["pokemon-img-container"]);
   card.img.sprite = await createImg(
@@ -90,17 +93,28 @@ async function createCard(pokemon, evolutionContainer) {
   );
 
   card.img.number = {};
-  card.img.number.container = createDiv(card.img.container, ["number-container"]);
+  card.img.number.container = createDiv(card.img.container, [
+    "number-container",
+  ]);
   const gen = pokemon.data.generation;
   const pokeId = pokemon.data.pokedexId;
-  card.img.number.generation = createElmt("p", card.img.number.container, ["generation"], { gen }, `Gen: ${gen}`);
-  card.img.number.pokeId = createElmt("p", card.img.number.container, ["pokeId"], { pokeId }, `N°: ${pokeId}`)
-  
-  
-  card.img.types = {};
-  card.img.types.container = createDiv(card.img.container,
-    ["types-container"]
+  card.img.number.generation = createElmt(
+    "p",
+    card.img.number.container,
+    ["generation"],
+    { gen },
+    `Gen: ${gen}`
   );
+  card.img.number.pokeId = createElmt(
+    "p",
+    card.img.number.container,
+    ["pokeId"],
+    { pokeId },
+    `N°: ${pokeId}`
+  );
+
+  card.img.types = {};
+  card.img.types.container = createDiv(card.img.container, ["types-container"]);
   card.img.types.imgs = [];
   for (const type of pokemon.data.types) {
     card.img.types.imgs.push(
@@ -109,7 +123,7 @@ async function createCard(pokemon, evolutionContainer) {
       })
     );
   }
-  
+
   card.response = {};
   card.response.container = createElmt(
     "div",
@@ -157,40 +171,65 @@ async function createCard(pokemon, evolutionContainer) {
   );
 
   card.information.resistances = {};
-  card.information.resistances.container = createDiv(card.information.container, ["resistances-container"]);
-  
-  card.information.resistances.forces = createDiv(card.information.resistances.container, ["forces"]);
-  
-  card.information.resistances.weakness = createDiv(card.information.resistances.container, ["weakness"]);
-  for(const resistance of pokemon.data.resistances){
-    if (resistance.multiplier > 1) {
-       await createImg(getTypeUrl(resistance.name), card.information.resistances.forces
-                , ["type"], {
-        type: resistance.name,
-      });
-    
-    } else if (resistance.multiplier < 1) {
-       await createImg(getTypeUrl(resistance.name), card.information.resistances.weakness
-                , ["type"], {
-        type: resistance.name,
-      });
-    }
-    }
+  card.information.resistances.container = createDiv(
+    card.information.container,
+    ["resistances-container"]
+  );
 
-    if (pokemon.data.sprites?.gmax?.shiny && rdmBool()) {
-    createImg(pokemon.data.sprites.gmax.shiny, card.information.container, [
-      "shiny",
-    ], { shiny: "gmax-shiny" });
-  } else if (pokemon.data.sprites?.gmax?.regular && rdmBool()) {
-    createImg(pokemon.data.sprites.gmax.shiny, card.information.container, [
-      "shiny",
-    ], { shiny: "gmax" });
-  } else if (pokemon.data.sprites?.shiny) {
-    createImg(pokemon.data.sprites.shiny, card.information.container, [
-      "shiny",
-    ], { shiny: "shiny" });
+  card.information.resistances.forces = createDiv(
+    card.information.resistances.container,
+    ["forces"]
+  );
+
+  card.information.resistances.weakness = createDiv(
+    card.information.resistances.container,
+    ["weakness"]
+  );
+  for (const resistance of pokemon.data.resistances) {
+    if (resistance.multiplier > 1) {
+      await createImg(
+        getTypeUrl(resistance.name),
+        card.information.resistances.forces,
+        ["type"],
+        {
+          type: resistance.name,
+        }
+      );
+    } else if (resistance.multiplier < 1) {
+      await createImg(
+        getTypeUrl(resistance.name),
+        card.information.resistances.weakness,
+        ["type"],
+        {
+          type: resistance.name,
+        }
+      );
     }
-  
+  }
+
+  if (pokemon.data.sprites?.gmax?.shiny && rdmBool()) {
+    createImg(
+      pokemon.data.sprites.gmax.shiny,
+      card.information.container,
+      ["shiny"],
+      { shiny: "gmax-shiny" }
+    );
+  } else if (pokemon.data.sprites?.gmax?.regular && rdmBool()) {
+    createImg(
+      pokemon.data.sprites.gmax.shiny,
+      card.information.container,
+      ["shiny"],
+      { shiny: "gmax" }
+    );
+  } else if (pokemon.data.sprites?.shiny) {
+    createImg(
+      pokemon.data.sprites.shiny,
+      card.information.container,
+      ["shiny"],
+      { shiny: "shiny" }
+    );
+  }
+
   return card;
 }
 
@@ -208,11 +247,11 @@ async function newEvolution() {
   const evolutionContainer = createElmt("div", main, ["evolution-container"]);
   const index = indexPokemons.shift();
   const pokemon = datas[index];
+  console.log(pokemon);
   pokemon.data = await getPokemonData(pokemon.name);
-  console.log(datas);
   console.log(pokemon.data);
 
-  if (pokemon.data.evolution.pre) {
+  if (pokemon.data.evolution?.pre) {
     for (const pre of pokemon.data.evolution.pre) {
       await newCard(pre.name, evolutionContainer);
     }

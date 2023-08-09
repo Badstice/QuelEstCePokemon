@@ -68,7 +68,7 @@ function resetResponse(inputSyllabes, responseSyllabes) {
 
 document.addEventListener("click", (evt) => {
   const target = evt.target;
-  console.log(target);
+  //console.log(target);
 
   if (target.dataset.pokemon) {
     speakPokemon(target.dataset.pokemon);
@@ -76,26 +76,24 @@ document.addEventListener("click", (evt) => {
     onInputSyllabeClick(target);
   } else if (target.dataset.type) {
     speak(target.dataset.type);
-  } else if(target.dataset.gen){
+  } else if (target.dataset.gen) {
     speakGeneration(target.dataset.gen);
-  } else if(target.dataset.pokeId){
+  } else if (target.dataset.pokeId) {
     speakPokeId(target.dataset.pokeId);
   } else if (target.dataset.shiny) {
-     speakShiny(target.dataset.shiny);
+    speakShiny(target.dataset.shiny);
   } else if (target.classList.contains("forces")) {
     speakResistance("résistant", [...target.querySelectorAll("[data-type]")]);
   } else if (target.classList.contains("weakness")) {
     speakResistance("faible", [...target.querySelectorAll("[data-type]")]);
   }
-  
-  
+
   if (target.classList.contains("information")) {
     onInformationClick(target);
   }
 });
 
 function handleTouchStart(event) {
-  event.preventDefault();
   startX = event.touches[0].clientX;
   startY = event.touches[0].clientY;
   document.addEventListener("touchmove", handleTouchMove);

@@ -37,128 +37,128 @@ const datas = [
   },
   {
     name: "Chenipan",
-    syllabes: ["che", "ni", "pan"]
+    syllabes: ["che", "ni", "pan"],
   },
   {
     name: "Chrysacier",
-    syllabes: ["chry", "sa", "cier"]
+    syllabes: ["chry", "sa", "cier"],
   },
   {
     name: "Papilusion",
-    syllabes: ["pa", "pi", "lu", "sion"]
+    syllabes: ["pa", "pi", "lu", "sion"],
   },
   {
     name: "Aspicot",
-    syllabes: ["a", "spi", "cot"]
+    syllabes: ["a", "spi", "cot"],
   },
   {
     name: "Coconfort",
-    syllabes: ["co", "con", "fort"]
+    syllabes: ["co", "con", "fort"],
   },
   {
-    name: "Dardagnan",
-    syllabes: ["dar", "dar", "gnan"]
+    name: "Dardargnan",
+    syllabes: ["dar", "dar", "gnan"],
   },
   {
     name: "Roucool",
-    syllabes: ["rou", "cool"]
+    syllabes: ["rou", "cool"],
   },
   {
     name: "Roucoups",
-    syllabes: ["rou", "coups"]
+    syllabes: ["rou", "coups"],
   },
   {
     name: "Roucarnage",
-    syllabes: ["rou", "car", "na", "ge"]
+    syllabes: ["rou", "car", "na", "ge"],
   },
   {
     name: "Rattata",
-    syllabes: ["ra", "tta", "ta"]
+    syllabes: ["ra", "tta", "ta"],
   },
   {
     name: "Rattatac",
-    syllabes: ["ra", "tta", "tac"]
+    syllabes: ["ra", "tta", "tac"],
   },
   {
     name: "Piafabec",
-    syllabes: ["pia", "fa", "bec"]
+    syllabes: ["pia", "fa", "bec"],
   },
   {
     name: "Rapasdepic",
-    syllabes: ["ra", "pas", "de", "pic"]
+    syllabes: ["ra", "pas", "de", "pic"],
   },
   {
     name: "Abo",
-    syllabes: ["a", "bo"]
+    syllabes: ["a", "bo"],
   },
   {
     name: "Arbok",
-    syllabes: ["ar", "bok"]
+    syllabes: ["ar", "bok"],
   },
   {
     name: "Pikachu",
-    syllabes: ["pi", "ka", "chu"]
+    syllabes: ["pi", "ka", "chu"],
   },
   {
     name: "Raichu",
-    syllabes: ["rai", "chu"]
+    syllabes: ["rai", "chu"],
   },
   {
     name: "Sabelette",
-    syllabes: ["sa", "be", "lette"]
+    syllabes: ["sa", "be", "lette"],
   },
   {
     name: "Sablaireau",
-    syllabes: ["sa", "blai", "reau"]
+    syllabes: ["sa", "blai", "reau"],
   },
   {
     name: "Nidorina",
-    syllabes: ["ni", "do", "ri", "na"]
+    syllabes: ["ni", "do", "ri", "na"],
   },
   {
     name: "Nidoqueen",
-    syllabes: ["ni", "do", "queen"]
+    syllabes: ["ni", "do", "queen"],
   },
   {
     name: "Nidorino",
-    syllabes: ["ni", "do", "ri", "no"]
+    syllabes: ["ni", "do", "ri", "no"],
   },
   {
     name: "Nidoking",
-    syllabes: ["ni", "do", "king"]
+    syllabes: ["ni", "do", "king"],
   },
   {
     name: "Mélofée",
-    syllabes: ["mé", "lo", "fée"]
+    syllabes: ["mé", "lo", "fée"],
   },
   {
     name: "Mélodelfe",
-    syllabes: ["mé", "lo", "delfe"]
+    syllabes: ["mé", "lo", "delfe"],
   },
   {
     name: "Goupix",
-    syllabes: ["gou", "pix"]
+    syllabes: ["gou", "pix"],
   },
   {
     name: "Feunard",
-    syllabes: ["feu", "nard"]
+    syllabes: ["feu", "nard"],
   },
   {
     name: "Rondoudou",
-    syllabes: ["ron", "dou", "doi"]
+    syllabes: ["ron", "dou", "doi"],
   },
   {
     name: "Grodoudou",
-    syllabes: ["gro", "dou", "dou"]
+    syllabes: ["gro", "dou", "dou"],
   },
   {
     name: "Nosferapti",
-    syllabes: ["nos", "fe", "ra", "pti"]
+    syllabes: ["nos", "fe", "ra", "pti"],
   },
   {
-    name: "Nosferapto",
-    syllabes: ["nos", "fe", "ra", "pto"]
-  }
+    name: "Nosferalto",
+    syllabes: ["nos", "fe", "ra", "pto"],
+  },
 ];
 
 const syllabes = {
@@ -166,7 +166,7 @@ const syllabes = {
   dra: "drap",
   meche: "mècheu",
   zarre: "zar",
-  sa: "za"
+  sa: "za",
 };
 
 const pokemonName = {};

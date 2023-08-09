@@ -1,11 +1,19 @@
+function rdmOne() {
+  const array = new Uint32Array(1);
+  self.crypto.getRandomValues(array);
+  const randomValue = array[0];
+
+  return randomValue % 2 === 0 ? 1 : -1;
+}
+
 function shuffleArray(arr) {
-  arr.sort(() => Math.random() - 0.5);
+  arr.sort(() => rdmOne());
   return arr;
 }
 
-function rdmBool(){
-return Math.random() - 0.5 > 0;
-  }
+function rdmBool() {
+  return rdmOne() > 0;
+}
 
 function getPokemon(pokemonName) {
   return datas.find((p) => p.name === pokemonName);
@@ -18,16 +26,18 @@ function checkName(name) {
   for (const key in replaces) {
     if (Object.hasOwnProperty.call(replaces, key)) {
       const values = replaces[key];
-      name = name.replace(new RegExp(values.join("|"), "i"), key);
+      name = name.replace(new RegExp(values.join("|"), "ig"), key);
     }
   }
+  console.log(name);
   return name.toLowerCase();
 }
 
 function getTypeUrl(type) {
-   return `https://raw.githubusercontent.com/Yarkis01/PokeAPI/images/types/${checkName(type)}.png`;
+  return `https://raw.githubusercontent.com/Yarkis01/PokeAPI/images/types/${checkName(
+    type
+  )}.png`;
 }
-
 
 function remove(array, elmt) {
   const index = array.indexOf(elmt);
