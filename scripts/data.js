@@ -26,6 +26,12 @@ const datas = [
   {
     name: "Carapuce",
     syllabes: ["ca", "ra", "puce"],
+    phonems: [
+      {
+        syllabe: "ca",
+        phonem: "ka",
+      },
+    ],
   },
   {
     name: "Carabaffe",
@@ -74,6 +80,12 @@ const datas = [
   {
     name: "Rattata",
     syllabes: ["ra", "tta", "ta"],
+    phonems: [
+      {
+        syllabe: "tta",
+        phonem: "ta",
+      },
+    ],
   },
   {
     name: "Rattatac",
@@ -145,7 +157,7 @@ const datas = [
   },
   {
     name: "Rondoudou",
-    syllabes: ["ron", "dou", "doi"],
+    syllabes: ["ron", "dou", "dou"],
   },
   {
     name: "Grodoudou",
@@ -157,16 +169,10 @@ const datas = [
   },
   {
     name: "Nosferalto",
-    syllabes: ["nos", "fe", "ra", "pto"],
+    syllabes: ["nos", "fe", "ral", "to"],
   },
 ];
 
-const syllabes = {
-  ca: "ka",
-  dra: "drap",
-  meche: "mècheu",
-  zarre: "zar",
-  sa: "za",
-};
+const syllabes = {};
 
 const pokemonName = {};

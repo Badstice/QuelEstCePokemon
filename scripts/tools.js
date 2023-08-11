@@ -15,6 +15,10 @@ function rdmBool() {
   return rdmOne() > 0;
 }
 
+function getRdm(array) {
+  shuffleArray(array)[0];
+}
+
 function getPokemon(pokemonName) {
   return datas.find((p) => p.name === pokemonName);
 }
@@ -29,7 +33,6 @@ function checkName(name) {
       name = name.replace(new RegExp(values.join("|"), "ig"), key);
     }
   }
-  console.log(name);
   return name.toLowerCase();
 }
 

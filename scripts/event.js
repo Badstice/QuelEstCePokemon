@@ -1,5 +1,5 @@
 function onInputSyllabeClick(target) {
-  speakSyllabe(target.dataset.syllabe);
+  speakSyllabe(target);
   const responsesContainer = document.querySelector(
     `div[data-id="${target.dataset.id}"] .response-container`
   );
@@ -29,12 +29,20 @@ function onInputSyllabeClick(target) {
     speak(response);
 
     if (response === responsesContainer.dataset.response) {
-      speak("Bravo !");
+      speak(getRdm(["Bravo !", "Félicitations ,", "Congratulations !"]));
       currentCard.classList.add("end");
       responsesContainer.classList.add("end");
       newEvolution();
     } else {
-      speak("Dommage, essai encore");
+      speak(
+        getRdm([
+          "Dommage, essai encore",
+          "Dommage",
+          "La prochaine fois",
+          "Concentre toi",
+          "Allez, recommence",
+        ])
+      );
       setTimeout(() => {
         resetResponse(
           [

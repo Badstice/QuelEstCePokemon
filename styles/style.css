@@ -64,7 +64,6 @@ main {
   height: 100%;
   position: absolute;
   z-index: -1;
-  border-radius: inherit;
   opacity: 0.5;
   background-position: top center;
   background-size: contain;
@@ -171,37 +170,37 @@ main {
   border-radius: inherit;
 }
 
-.number-container{
+.number-container {
   position: absolute;
-  left: 17px;
+  left: 5px;
   top: -19px;
-  height: px;
-  width: 150px;
+  height: 22px;
+  width: 50%;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   align-content: center;
   z-index: 10;
   border-radius: 10%;
 }
 
-.generation{
+.generation {
   font-weight: bolder;
   margin: 0 5px;
 }
 
-.pokeId{
+.pokeId {
   font-weight: bolder;
   margin: 0 5px;
 }
 
 .types-container {
   position: absolute;
-  right: 17px;
+  right: 5px;
   top: -32px;
   height: 50px;
-  width: 100px;
+  width: 50%;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
@@ -214,7 +213,7 @@ img.type {
   border-radius: 100%;
   width: 40px;
   height: 40px;
-  margin-right:10px;
+  margin-right: 10px;
   outline: 2px outset lightgrey;
 }
 
@@ -395,8 +394,8 @@ img.type[data-type="Vol"] {
   object-fit: contain;
 }
 
-.information{
-  visibility: hidden
+.information {
+  visibility: hidden;
 }
 
 .end .information {
@@ -421,26 +420,27 @@ img.type[data-type="Vol"] {
   font-weight: bolder;
 }
 
-.resistances-container{
-display: flex;
+.resistances-container {
+  display: flex;
   flex-flow: column nowrap;
-  width:100%;
-  }
+  width: 100%;
+}
 
-.forces, .weakness{
+.forces,
+.weakness {
   display: flew;
   flex-flow: row wrap;
-  }
+}
 
-.forces{
+.forces {
   background-color: green;
-  }
+}
 
-.weakness{
+.weakness {
   background-color: red;
-  }
+}
 
-.resistances-container img.type{
+.resistances-container img.type {
   width: 9vw;
   height: 9vw;
   pointer-events: none;

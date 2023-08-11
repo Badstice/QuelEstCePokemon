@@ -1,9 +1,6 @@
 async function getPokemonData(pokemonName) {
   const response = await fetch(apiRoot + checkName(pokemonName));
   const json = await response.json();
-  if (response?.status === 404) {
-    console.log(`Le pokèmon ${pokemon} n'existe pas`);
-  }
   return json;
 }
 
@@ -144,18 +141,35 @@ async function createCard(pokemon, evolutionContainer) {
     card.response.syllabes.push(
       createElmt("div", card.response.container, ["syllabe"], { index })
     );
-    card.input.syllabes.push(
-      createElmt(
-        "div",
-        card.input.container,
-        ["syllabe"],
-        { index, syllabe, id: pokemon.data.pokedexId },
-        syllabe,
-        {
-          order: indexs[index],
-        }
-      )
-    );
+
+    if (pokemon.phonems && pokemon.phonems.find((p) => p.syllabe === syllabe)) {
+      const phonem = pokemon.phonems.find((p) => p.syllabe === syllabe).phonem;
+      card.input.syllabes.push(
+        createElmt(
+          "div",
+          card.input.container,
+          ["syllabe"],
+          { index, syllabe, id: pokemon.data.pokedexId, phonem },
+          syllabe,
+          {
+            order: indexs[index],
+          }
+        )
+      );
+    } else {
+      card.input.syllabes.push(
+        createElmt(
+          "div",
+          card.input.container,
+          ["syllabe"],
+          { index, syllabe, id: pokemon.data.pokedexId },
+          syllabe,
+          {
+            order: indexs[index],
+          }
+        )
+      );
+    }
   }
 
   card.information = {};
