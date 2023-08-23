@@ -36,6 +36,12 @@ const datas = [
   {
     name: "Carabaffe",
     syllabes: ["ca", "ra", "baffe"],
+    phonems: [
+      {
+        syllabe: "ca",
+        phonem: "ka",
+      },
+    ],
   },
   {
     name: "Tortank",
@@ -101,6 +107,7 @@ const datas = [
   },
   {
     name: "Abo",
+    phonem: "abeau",
     syllabes: ["a", "bo"],
   },
   {
@@ -158,6 +165,12 @@ const datas = [
   {
     name: "Rondoudou",
     syllabes: ["ron", "dou", "dou"],
+    phonems: [
+      {
+        syllabe: "ron",
+        phonem: "rond",
+      },
+    ],
   },
   {
     name: "Grodoudou",

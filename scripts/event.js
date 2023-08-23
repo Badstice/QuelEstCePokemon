@@ -26,17 +26,21 @@ function onInputSyllabeClick(target) {
 
   if (isEnd) {
     const response = responseSyllabes.map((r) => r.innerText).join("");
-    speak(response);
 
     if (
       response.toLowerCase() ===
       responsesContainer.dataset.response.toLowerCase()
     ) {
+      speak(
+        target.parentElement.dataset.pokephonem ??
+          target.parentElement.dataset.pokemon
+      );
       speak(getRdm(["Bravo !", "Félicitations ,", "Congratulations !"]));
       currentCard.classList.add("end");
       responsesContainer.classList.add("end");
       newEvolution();
     } else {
+      speak(response);
       speak(
         getRdm([
           "Dommage, essai encore",
@@ -82,7 +86,7 @@ document.addEventListener("click", (evt) => {
   //console.log(target);
 
   if (target.dataset.pokemon) {
-    speakPokemon(target.dataset.pokemon);
+    speakPokemon(target.dataset.pokephonem ?? target.dataset.pokemon);
   } else if (target.dataset.syllabe && !target.dataset.end) {
     onInputSyllabeClick(target);
   } else if (target.dataset.type) {

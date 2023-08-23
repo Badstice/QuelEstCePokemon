@@ -16,7 +16,7 @@ function rdmBool() {
 }
 
 function getRdm(array) {
-  shuffleArray(array)[0];
+  return shuffleArray(array)[0];
 }
 
 function getPokemon(pokemonName) {

@@ -1,7 +1,5 @@
 const synth = window.speechSynthesis;
 
-synth.addEventListener("end", (evt) => console.log(evt));
-
 function speak(msg) {
   let speech = new SpeechSynthesisUtterance(msg);
   synth.speak(speech);
