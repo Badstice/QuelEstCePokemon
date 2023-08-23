@@ -28,7 +28,7 @@ function onInputSyllabeClick(target) {
     const response = responseSyllabes.map((r) => r.innerText).join("");
     speak(response);
 
-    if (response === responsesContainer.dataset.response) {
+    if (response.toLowerCase() === responsesContainer.dataset.response.toLowerCase()) {
       speak("Bravo !");
       currentCard.classList.add("end");
       responsesContainer.classList.add("end");

@@ -150,7 +150,7 @@ async function createCard(pokemon, evolutionContainer) {
         card.input.container,
         ["syllabe"],
         { index, syllabe, id: pokemon.data.pokedexId },
-        syllabe,
+        syllabe.toUpperCase(),
         {
           order: indexs[index],
         }
