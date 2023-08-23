@@ -57,8 +57,7 @@ function createDiv(parent, classes, datasets, innerText, params) {
 
 async function createCard(pokemon, evolutionContainer) {
   let card = {};
-  card.container = createElmt(
-    "div",
+  card.container = createDiv(
     evolutionContainer,
     ["card-container"],
     {
@@ -70,13 +69,13 @@ async function createCard(pokemon, evolutionContainer) {
   card.backgrounds = [];
   for (const type of pokemon.data.types) {
     card.backgrounds.push(
-      createElmt("div", card.container, ["bg"], {
+      createDiv(card.container, ["bg"], {
         type: type.name,
       })
     );
   }
 
-  card.card = createElmt("div", card.container, ["card"]);
+  card.card = createDiv(card.container, ["card"]);
 
   card.img = {};
   card.img.container = createDiv(card.card, ["pokemon-img-container"]);
@@ -86,6 +85,7 @@ async function createCard(pokemon, evolutionContainer) {
     ["pokemon-img"],
     {
       pokemon: pokemon.name,
+      pokephonem: pokemon.phonem,
     }
   );
 
@@ -126,12 +126,19 @@ async function createCard(pokemon, evolutionContainer) {
     "div",
     card.card,
     ["response-container"],
-    { response: pokemon.name.toLocaleLowerCase(), pokemon: pokemon.name }
+    {
+      response: pokemon.name.toLocaleLowerCase(),
+      pokemon: pokemon.name,
+      pokephonem: pokemon.phonem,
+    }
   );
   card.response.syllabes = [];
 
   card.input = {};
-  card.input.container = createElmt("div", card.card, ["input-container"]);
+  card.input.container = createElmt("div", card.card, ["input-container"], {
+    pokemon: pokemon.name,
+    pokephonem: pokemon.phonem,
+  });
   card.input.syllabes = [];
 
   const indexs = shuffleArray(pokemon.syllabes.map((v, i) => i));
@@ -150,7 +157,7 @@ async function createCard(pokemon, evolutionContainer) {
           card.input.container,
           ["syllabe"],
           { index, syllabe, id: pokemon.data.pokedexId, phonem },
-          syllabe,
+          syllabe.toUpperCase(),
           {
             order: indexs[index],
           }
@@ -163,7 +170,7 @@ async function createCard(pokemon, evolutionContainer) {
           card.input.container,
           ["syllabe"],
           { index, syllabe, id: pokemon.data.pokedexId },
-          syllabe,
+          syllabe.toUpperCase(),
           {
             order: indexs[index],
           }
@@ -180,7 +187,7 @@ async function createCard(pokemon, evolutionContainer) {
   card.information.bnt = createDiv(
     card.img.container,
     ["information"],
-    { pokemon: pokemon.name },
+    { pokemon: pokemon.name, pokephonem: pokemon.phonem },
     "i"
   );
 
@@ -203,7 +210,7 @@ async function createCard(pokemon, evolutionContainer) {
     if (resistance.multiplier > 1) {
       await createImg(
         getTypeUrl(resistance.name),
-        card.information.resistances.forces,
+        card.information.resistances.weakness,
         ["type"],
         {
           type: resistance.name,
@@ -212,7 +219,7 @@ async function createCard(pokemon, evolutionContainer) {
     } else if (resistance.multiplier < 1) {
       await createImg(
         getTypeUrl(resistance.name),
-        card.information.resistances.weakness,
+        card.information.resistances.forces,
         ["type"],
         {
           type: resistance.name,
@@ -257,9 +264,9 @@ async function newCard(pokemonName, evolutionContainer) {
   }
 }
 
-async function newEvolution() {
+async function newEvolution(id) {
   const evolutionContainer = createElmt("div", main, ["evolution-container"]);
-  const index = indexPokemons.shift();
+  const index = id ?? indexPokemons.shift();
   const pokemon = datas[index];
   console.log(pokemon);
   pokemon.data = await getPokemonData(pokemon.name);
