@@ -31,7 +31,7 @@ function createElmt(elmt, parent, classes, datasets, innerText, params) {
     for (const key in datasets) {
       if (Object.hasOwnProperty.call(datasets, key)) {
         const value = datasets[key];
-        stock.dataset[key] = value;
+        if (value) stock.dataset[key] = value;
       }
     }
   }
