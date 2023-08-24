@@ -1,5 +1,5 @@
-async function getPokemonData(pokemonName) {
-  const response = await fetch(apiRoot + checkName(pokemonName));
+async function getPokemonData(pokedexId) {
+  const response = await fetch(apiRoot + pokedexId);
   const json = await response.json();
   return json;
 }
@@ -136,8 +136,7 @@ async function createCard(pokemon, evolutionContainer) {
 
   card.input = {};
   card.input.container = createElmt("div", card.card, ["input-container"], {
-    pokemon: pokemon.name,
-    pokephonem: pokemon.phonem,
+    pokemonspeak: pokemon?.phonem ?? pokemon.name,
   });
   card.input.syllabes = [];
 
@@ -269,7 +268,7 @@ async function newEvolution(id) {
   const index = id ?? indexPokemons.shift();
   const pokemon = datas[index];
   console.log(pokemon);
-  pokemon.data = await getPokemonData(pokemon.name);
+  pokemon.data = await getPokemonData(pokemon.index);
   console.log(pokemon.data);
 
   if (pokemon.data.evolution?.pre) {

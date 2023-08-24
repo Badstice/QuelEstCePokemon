@@ -31,10 +31,7 @@ function onInputSyllabeClick(target) {
       response.toLowerCase() ===
       responsesContainer.dataset.response.toLowerCase()
     ) {
-      speak(
-        target.parentElement.dataset.pokephonem ??
-          target.parentElement.dataset.pokemon
-      );
+      speak(target.parentElement.dataset.pokemonspeak);
       speak(getRdm(["Bravo !", "Félicitations ,", "Congratulations !"]));
       currentCard.classList.add("end");
       responsesContainer.classList.add("end");
