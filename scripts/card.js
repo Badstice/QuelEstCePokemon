@@ -257,8 +257,11 @@ async function newCard(pokemonName, evolutionContainer) {
   const pokemon = getPokemon(pokemonName);
   console.log(pokemon);
   if (pokemon) {
-    indexPokemons = remove(indexPokemons, pokemon.index);
-    pokemon.data = await getPokemonData(pokemon.name);
+    indexPokemons = remove(
+      indexPokemons,
+      datas.indexOf((d) => d.name === pokemonName)
+    );
+    pokemon.data = await getPokemonData(pokemon.index);
     await createCard(pokemon, evolutionContainer);
   }
 }
@@ -287,7 +290,7 @@ async function newEvolution(id) {
     });
   }
 
-  if (pokemon.data.evolution.next) {
+  if (pokemon.data.evolution?.next) {
     for (const next of pokemon.data.evolution.next) {
       await newCard(next.name, evolutionContainer);
     }

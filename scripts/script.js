@@ -1,2 +1,4 @@
-datas.forEach((d, i) => (d.index = i + 1));
-newEvolution(23);
+datas.forEach((d, i) => {
+  if (!datas.index) d.index = i + 1;
+});
+newEvolution();

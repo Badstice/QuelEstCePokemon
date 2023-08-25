@@ -33,6 +33,22 @@ body {
   left: 0;
 }
 
+#points {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
 main {
   display: block;
   overflow: hidden;

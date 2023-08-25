@@ -18,6 +18,12 @@ const datas = [
   {
     name: "Reptincel",
     syllabes: ["re", "ptin", "cel"],
+    phonems: [
+      {
+        syllabe: "re",
+        phonem: "ré",
+      },
+    ],
   },
   {
     name: "Dracaufeu",
@@ -66,6 +72,12 @@ const datas = [
   {
     name: "Coconfort",
     syllabes: ["co", "con", "fort"],
+    phonems: [
+      {
+        syllabe: "co",
+        phonem: "quo",
+      },
+    ],
   },
   {
     name: "Dardargnan",
@@ -121,6 +133,13 @@ const datas = [
   {
     name: "Raichu",
     syllabes: ["rai", "chu"],
+    phonems: [
+      {
+        syllabe: "chu",
+        phonem: "tchou",
+      },
+    ],
+    phonem: "raitchou",
   },
   {
     name: "Sabelette",
@@ -243,6 +262,12 @@ const datas = [
   {
     name: "Miaouss",
     syllabes: ["mi", "a", "ouss"],
+    phonems: [
+      {
+        syllabe: "ouss",
+        phonem: "ouce",
+      },
+    ],
   },
   {
     name: "Persian",
@@ -263,6 +288,12 @@ const datas = [
   {
     name: "Colossinge",
     syllabes: ["co", "los", "sin", "ge"],
+    phonems: [
+      {
+        syllabe: "co",
+        phonem: "quo",
+      },
+    ],
   },
   {
     name: "Caninos",
@@ -407,6 +438,16 @@ const datas = [
   {
     name: "Spectrum",
     syllabes: ["spe", "ctrum"],
+    phonems: [
+      {
+        syllabe: "spe",
+        phonem: "spé",
+      },
+      {
+        syllabe: "ctrum",
+        phonem: "ctrome",
+      },
+    ],
   },
   {
     name: "Ectoplasma",
@@ -507,6 +548,12 @@ const datas = [
   {
     name: "Poissirène",
     syllabes: ["poi", "ssi", "rène"],
+    phonems: [
+      {
+        syllabe: "ssi",
+        phonem: "çi",
+      },
+    ],
   },
   {
     name: "Poissoroy",
@@ -579,6 +626,12 @@ const datas = [
   {
     name: "Pyroli",
     syllabes: ["py", "ro", "li"],
+    phonems: [
+      {
+        syllabe: "ro",
+        phonem: "reau",
+      },
+    ],
   },
   {
     name: "Porygon",
@@ -623,14 +676,44 @@ const datas = [
   {
     name: "Minidraco",
     syllabes: ["mi", "ni", "dra", "co"],
+    phonems: [
+      {
+        syllabe: "dra",
+        phonem: "drap",
+      },
+      {
+        syllabe: "co",
+        phonem: "quo",
+      },
+    ],
   },
   {
     name: "Draco",
     syllabes: ["dra", "co"],
+    phonems: [
+      {
+        syllabe: "dra",
+        phonem: "drap",
+      },
+      {
+        syllabe: "co",
+        phonem: "quo",
+      },
+    ],
   },
   {
     name: "Dracolosse",
     syllabes: ["dra", "co", "lo", "sse"],
+    phonems: [
+      {
+        syllabe: "dra",
+        phonem: "drap",
+      },
+      {
+        syllabe: "co",
+        phonem: "quo",
+      },
+    ],
   },
   {
     name: "Mewtwo",
@@ -641,7 +724,3 @@ const datas = [
     syllabes: ["mew"],
   },
 ];
-
-const syllabes = {};
-
-const pokemonName = {};

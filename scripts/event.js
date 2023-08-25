@@ -1,3 +1,8 @@
+function updatePoints(addPoints) {
+  points += addPoints;
+  divPoints.innerHTML = points;
+}
+
 function onInputSyllabeClick(target) {
   speakSyllabe(target);
   const responsesContainer = document.querySelector(
@@ -32,6 +37,7 @@ function onInputSyllabeClick(target) {
       responsesContainer.dataset.response.toLowerCase()
     ) {
       speak(target.parentElement.dataset.pokemonspeak);
+      updatePoints(target.parentElement.childElementCount);
       speak(getRdm(["Bravo !", "Félicitations ,", "Congratulations !"]));
       currentCard.classList.add("end");
       responsesContainer.classList.add("end");
@@ -80,7 +86,6 @@ function resetResponse(inputSyllabes, responseSyllabes) {
 
 document.addEventListener("click", (evt) => {
   const target = evt.target;
-  //console.log(target);
 
   if (target.dataset.pokemon) {
     speakPokemon(target.dataset.pokephonem ?? target.dataset.pokemon);
@@ -98,6 +103,10 @@ document.addEventListener("click", (evt) => {
     speakResistance("résistant", [...target.querySelectorAll("[data-type]")]);
   } else if (target.classList.contains("weakness")) {
     speakResistance("faible", [...target.querySelectorAll("[data-type]")]);
+  } else if (target.id === "points") {
+    speak("Faisons un point sur les scores.");
+    speak(`Tu as ${points} points`);
+    speak("bravo !");
   }
 
   if (target.classList.contains("information")) {
@@ -118,7 +127,7 @@ function handleTouchMove(event) {
 }
 
 function handleTouchEnd(event) {
-  if (Math.abs(deltaY) > 100) {
+  if (Math.abs(deltaY) > 50) {
     goToNextPokemon(deltaY > 0 ? -1 : 1);
   } else if (Math.abs(deltaX) > 100) {
     goToNextEvolution(deltaX > 0 ? -1 : 1);

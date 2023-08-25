@@ -12,3 +12,7 @@ let startX = 0,
   startY = 0,
   deltaX = 0,
   deltaY = 0;
+
+let points = 0;
+
+const divPoints = document.getElementById("points");
